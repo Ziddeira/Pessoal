@@ -901,7 +901,8 @@ function layer(ctx, t, [a, b], draw, exit = 0.28) {
   ctx.restore();
 }
 
-export function renderFrame(ctx, t, A) {
+// phoneOnly: só fundo + celular (quadros de referência para outras ferramentas).
+export function renderFrame(ctx, t, A, { phoneOnly = false } = {}) {
   t = clamp(t, 0, DURATION - 1e-6);
   ctx.save();
   ctx.setTransform(1, 0, 0, 1, 0, 0);
@@ -918,6 +919,11 @@ export function renderFrame(ctx, t, A) {
   }
   ctx.translate(sx, sy);
 
+  if (phoneOnly) {
+    drawPhone(ctx, t, A);
+    ctx.restore();
+    return;
+  }
   drawWatermark(ctx, t, A);
   drawPhone(ctx, t, A);
   layer(ctx, t, SCENES.gancho, () => sceneGancho(ctx, t));

@@ -103,8 +103,8 @@ if (new URLSearchParams(location.search).has('render')) {
   document.body.classList.add('render');
   window.reels = {
     ready: true,
-    frame(t) {
-      renderFrame(ctx, t, assets);
+    frame(t, opts) {
+      renderFrame(ctx, t, assets, opts);
       return canvas.toDataURL('image/png');
     },
   };

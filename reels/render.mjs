@@ -2,6 +2,7 @@
 //
 //   node render.mjs                 -> out/angeltech-reels.mp4
 //   node render.mjs --stills 1,8.5  -> out/still-1.png, out/still-8.5.png
+//   node render.mjs --stills 1.3 --phone -> só o celular, sem textos
 //   node render.mjs --serve         -> abre o player em http://localhost:5173
 import http from 'node:http';
 import fs from 'node:fs';
@@ -58,15 +59,16 @@ async function render() {
   await page.goto(`http://localhost:${server.address().port}/?render`);
   await page.waitForFunction(() => window.reels?.ready, null, { timeout: 30000 });
 
+  const opts = { phoneOnly: args.includes('--phone') };
   const grab = async (t) => {
-    const url = await page.evaluate((tt) => window.reels.frame(tt), t);
+    const url = await page.evaluate(([tt, o]) => window.reels.frame(tt, o), [t, opts]);
     return Buffer.from(url.slice(url.indexOf(',') + 1), 'base64');
   };
 
   const stills = flag('--stills');
   if (stills !== null) {
     for (const s of stills.split(',').map(Number)) {
-      const file = path.join(OUT, `still-${s}.png`);
+      const file = path.join(OUT, `${opts.phoneOnly ? 'celular' : 'still'}-${s}.png`);
       fs.writeFileSync(file, await grab(s));
       console.log(file);
     }
