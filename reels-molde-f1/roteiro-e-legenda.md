@@ -9,7 +9,7 @@
 |---|---|---|
 | 0–3,5s | Cura no LED, unhas longas em destaque (zoom lento) | **Unhas longas, finas e naturais?** / *o segredo é o MOLDE F1* |
 | 3,5–7,5s | Acabamento com pincel | **Estrutura moldada unha por unha** / *curvatura perfeita, sem excesso de produto* |
-| 7,5–12,5s | Lixamento com motor | **Finalização com acabamento impecável** / *leve • fina • resistente* |
+| 7,5–12,5s | Lixamento com motor | **Acabamento impecável** / *leve • fina • resistente* |
 | 12,5–17s | Panorâmica até o logo GLOW Studio | *Feito com carinho no* → logo |
 | 17–21s | Fachada do studio (zoom suave) | **Agende seu alongamento** / *Bianca Goldran • Glow Studio* / *link na bio* |
 
@@ -43,3 +43,9 @@ Me conta nos comentários: você prefere formato amendoado ou quadrado? 👇
 - **Melhor horário:** 11h–13h ou 18h–21h.
 - Compartilhe nos Stories com enquete: "Faria alongamento F1? Sim / Quero saber mais".
 - Fixe um comentário com o link ou "Chama no direct para agendar".
+
+## Posição dos textos
+Os textos ficam nas áreas livres de cada cena, sem cobrir mãos e unhas:
+- Cena 1 (LED): textos na parte de baixo, sobre o suporte da lâmpada.
+- Cena 2 (pincel): textos no topo, sobre o fundo da mesa.
+- Cena 3 (lixamento): textos na parte de baixo, sobre a tela de apoio.
