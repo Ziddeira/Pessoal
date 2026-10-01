@@ -1,0 +1,15 @@
+{
+  "name": "angeltech-reels",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Vídeo Reels 9:16 da Angel Tech desenhado em JavaScript (canvas + Web Audio).",
+  "type": "module",
+  "scripts": {
+    "dev": "node render.mjs --serve",
+    "render": "node render.mjs",
+    "stills": "node render.mjs --stills 0.4,1.6,5.0,7.6,11.9,16.4,19.6,23.6,27"
+  },
+  "devDependencies": {
+    "playwright": "1.56.1"
+  }
+}

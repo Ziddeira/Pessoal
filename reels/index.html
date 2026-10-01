@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Angel Tech · Reels</title>
+<style>
+  :root {
+    --noite: #0C1C33;
+    --angel: #1C89DC;
+    --ambar: #F5A623;
+    --fundo: #070f1c;
+    --texto: #e8eef6;
+  }
+  @font-face { font-family: 'Inter'; src: url(fonts/Inter.woff2) format('woff2'); font-weight: 100 900; }
+  @font-face { font-family: 'Montserrat'; src: url(fonts/Montserrat.woff2) format('woff2'); font-weight: 100 900; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; }
+  body {
+    background: var(--fundo);
+    color: var(--texto);
+    font: 500 15px/1.4 Inter, system-ui, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    padding: 16px;
+  }
+  canvas {
+    height: min(78vh, calc((100vw - 32px) * 16 / 9));
+    aspect-ratio: 9 / 16;
+    border-radius: 18px;
+    box-shadow: 0 0 0 1px rgba(28,137,220,.25), 0 20px 60px rgba(0,0,0,.5);
+    background: var(--noite);
+  }
+  .bar { display: flex; gap: 10px; align-items: center; width: min(100%, 440px); }
+  input[type=range] { flex: 1; accent-color: var(--angel); }
+  button {
+    font: 700 14px Montserrat, sans-serif;
+    letter-spacing: .04em;
+    border: 1px solid rgba(28,137,220,.6);
+    background: transparent;
+    color: var(--texto);
+    padding: 10px 14px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  button:hover { background: rgba(28,137,220,.15); }
+  button.cta { background: var(--ambar); color: var(--noite); border-color: var(--ambar); }
+  button:disabled { opacity: .5; cursor: progress; }
+  .time { font-variant-numeric: tabular-nums; min-width: 86px; text-align: right; opacity: .8; }
+  .status { min-height: 20px; opacity: .75; font-size: 13px; text-align: center; }
+  body.render { padding: 0; background: #000; }
+  body.render > :not(canvas) { display: none; }
+  body.render canvas { height: auto; width: 1080px; border-radius: 0; box-shadow: none; }
+</style>
+</head>
+<body>
+  <canvas id="c" width="1080" height="1920"></canvas>
+  <div class="bar">
+    <button id="play">▶ PLAY</button>
+    <input id="seek" type="range" min="0" step="0.01" value="0">
+    <span class="time" id="time">0.0s</span>
+  </div>
+  <div class="bar" style="justify-content:center">
+    <button id="loop">LOOP: ON</button>
+    <button id="export" class="cta">⬇ EXPORTAR VÍDEO</button>
+  </div>
+  <div class="status" id="status">Carregando…</div>
+
+<script type="module">
+import { W, H, FPS, DURATION, CUES, MUSIC, renderFrame } from './src/video.js';
+import { generateSoundtrack } from './src/audio.js';
+
+const canvas = document.getElementById('c');
+canvas.width = W;
+canvas.height = H;
+const ctx = canvas.getContext('2d');
+const $ = (id) => document.getElementById(id);
+const status = (s) => ($('status').textContent = s);
+
+function loadImage(src) {
+  return new Promise((res, rej) => {
+    const i = new Image();
+    i.onload = () => res(i);
+    i.onerror = () => rej(new Error('Falha ao carregar ' + src));
+    i.src = src;
+  });
+}
+
+const [assets] = await Promise.all([
+  Promise.all([loadImage('assets/logo-vertical.png'), loadImage('assets/simbolo.png')])
+    .then(([logo, simbolo]) => ({ logo, simbolo })),
+  document.fonts.load('800 80px Montserrat'),
+  document.fonts.load('700 80px Montserrat'),
+  document.fonts.load('500 40px Inter'),
+  document.fonts.load('400 40px Inter'),
+]);
+
+// Modo usado pelo render.mjs (Playwright): sem UI, quadro a quadro.
+if (new URLSearchParams(location.search).has('render')) {
+  document.body.classList.add('render');
+  window.reels = {
+    ready: true,
+    frame(t) {
+      renderFrame(ctx, t, assets);
+      return canvas.toDataURL('image/png');
+    },
+  };
+} else {
+  startPlayer();
+}
+
+function startPlayer() {
+  let actx = null;
+  let buffer = null;
+  let src = null;
+  let startAt = 0;
+  let offset = 0;
+  let playing = false;
+  let loop = true;
+  let recorder = null;
+  let recDest = null;
+
+  $('seek').max = DURATION;
+  status('Pronto. 1080×1920 · ' + DURATION + 's · ' + FPS + 'fps');
+
+  async function ensureAudio() {
+    if (!actx) actx = new AudioContext();
+    if (actx.state === 'suspended') await actx.resume();
+    if (!buffer) {
+      status('Gerando trilha…');
+      await new Promise((r) => setTimeout(r, 20));
+      const s = generateSoundtrack({ sampleRate: actx.sampleRate, duration: DURATION, cues: CUES, music: MUSIC });
+      buffer = actx.createBuffer(2, s.left.length, s.sampleRate);
+      buffer.copyToChannel(s.left, 0);
+      buffer.copyToChannel(s.right, 1);
+      status('');
+    }
+  }
+
+  const now = () => (playing ? Math.min(DURATION, actx.currentTime - startAt) : offset);
+
+  async function play() {
+    await ensureAudio();
+    if (offset >= DURATION - 0.05) offset = 0;
+    src = actx.createBufferSource();
+    src.buffer = buffer;
+    src.connect(actx.destination);
+    if (recDest) src.connect(recDest);
+    startAt = actx.currentTime - offset;
+    src.start(0, offset);
+    playing = true;
+    $('play').textContent = '❚❚ PAUSA';
+  }
+
+  function pause() {
+    if (!playing) return;
+    offset = now();
+    src.stop();
+    src.disconnect();
+    playing = false;
+    $('play').textContent = '▶ PLAY';
+  }
+
+  $('play').onclick = () => (playing ? pause() : play());
+  $('loop').onclick = () => {
+    loop = !loop;
+    $('loop').textContent = 'LOOP: ' + (loop ? 'ON' : 'OFF');
+  };
+  $('seek').oninput = (e) => {
+    const was = playing;
+    pause();
+    offset = +e.target.value;
+    if (was) play();
+  };
+
+  $('export').onclick = async () => {
+    await ensureAudio();
+    pause();
+    const types = [
+      'video/mp4;codecs=avc1.640028,mp4a.40.2',
+      'video/mp4',
+      'video/webm;codecs=vp9,opus',
+      'video/webm',
+    ];
+    const mimeType = types.find((m) => MediaRecorder.isTypeSupported(m));
+    recDest = actx.createMediaStreamDestination();
+    const stream = new MediaStream([
+      ...canvas.captureStream(FPS).getVideoTracks(),
+      ...recDest.stream.getAudioTracks(),
+    ]);
+    const chunks = [];
+    recorder = new MediaRecorder(stream, { mimeType, videoBitsPerSecond: 16e6 });
+    recorder.ondataavailable = (e) => e.data.size && chunks.push(e.data);
+    recorder.onstop = () => {
+      const blob = new Blob(chunks, { type: mimeType });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'angeltech-reels.' + (mimeType.includes('mp4') ? 'mp4' : 'webm');
+      a.click();
+      recDest = null;
+      recorder = null;
+      $('export').disabled = false;
+      status('Vídeo exportado (' + (blob.size / 1e6).toFixed(1) + ' MB).');
+    };
+    $('export').disabled = true;
+    status('Gravando em tempo real… não troque de aba.');
+    offset = 0;
+    recorder.start();
+    await play();
+  };
+
+  function tick() {
+    const t = now();
+    renderFrame(ctx, t, assets);
+    $('seek').value = t;
+    $('time').textContent = t.toFixed(1) + 's / ' + DURATION + 's';
+    if (playing && t >= DURATION) {
+      pause();
+      offset = 0;
+      if (recorder) recorder.stop();
+      else if (loop) play();
+    }
+    requestAnimationFrame(tick);
+  }
+  tick();
+}
+</script>
+</body>
+</html>
