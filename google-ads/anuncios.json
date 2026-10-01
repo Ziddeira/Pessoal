@@ -1,0 +1,144 @@
+{
+  "campanha": "Angel Tech | Pesquisa | São José",
+  "telefone": "(48) 98865-0449",
+  "grupos": [
+    {
+      "nome": "Troca de tela",
+      "caminho": ["troca-de-tela", "sao-jose"],
+      "titulos": [
+        "Troca de tela em 40 minutos",
+        "Tela trocada a partir de R$190",
+        "Garantia de 90 dias escrita",
+        "Tela quebrou? Troca hoje",
+        "Troca de tela no mesmo dia",
+        "Assistência técnica São José",
+        "Conserto de celular Ipiranga",
+        "Angel Tech no Ipiranga",
+        "Orçamento sem compromisso",
+        "Fale direto com quem conserta",
+        "Tela de iPhone e Android",
+        "Preço na frente, sem enrolação",
+        "Orçamento rápido no WhatsApp",
+        "Loja física em São José, SC",
+        "Peça com garantia de 90 dias"
+      ],
+      "fixar": { "1": ["Troca de tela em 40 minutos", "Tela quebrou? Troca hoje"], "2": ["Tela trocada a partir de R$190"] },
+      "descricoes": [
+        "Tela trocada em 40 minutos, a partir de R$ 190, com garantia de 90 dias por escrito.",
+        "Orçamento sem compromisso. Se não compensar consertar, a gente fala. Chame agora.",
+        "Você fala direto com quem conserta o seu aparelho. Loja no Ipiranga, em São José/SC.",
+        "Também fazemos troca de bateria, banho químico, películas, acessórios e notebooks."
+      ],
+      "palavras": [
+        "\"troca de tela celular\"",
+        "\"conserto tela celular\"",
+        "\"tela quebrada celular\"",
+        "\"troca de tela iphone\"",
+        "\"trocar tela celular são josé\"",
+        "\"assistência técnica celular são josé\"",
+        "\"assistência técnica celular perto de mim\"",
+        "[conserto de celular ipiranga]",
+        "[troca de tela celular são josé]"
+      ]
+    },
+    {
+      "nome": "Troca de bateria",
+      "caminho": ["bateria", "sao-jose"],
+      "titulos": [
+        "Troca de bateria de celular",
+        "Bateria viciada ou estufada?",
+        "Celular descarregando rápido?",
+        "Bateria nova com garantia",
+        "Garantia de 90 dias escrita",
+        "Bateria de iPhone e Android",
+        "Bateria estufada? Não espere",
+        "Assistência técnica São José",
+        "Conserto de celular Ipiranga",
+        "Angel Tech no Ipiranga",
+        "Orçamento sem compromisso",
+        "Fale direto com quem conserta",
+        "Preço na frente, sem enrolação",
+        "Orçamento rápido no WhatsApp",
+        "Loja física em São José, SC"
+      ],
+      "fixar": { "1": ["Troca de bateria de celular", "Bateria viciada ou estufada?"] },
+      "descricoes": [
+        "Celular descarregando rápido ou bateria estufada? Troca com garantia de 90 dias escrita.",
+        "Bateria estufada pode forçar e danificar a tela. Traga para avaliar antes de piorar.",
+        "Orçamento sem compromisso. Se não compensar consertar, a gente fala. Chame agora.",
+        "Você fala direto com quem conserta o seu aparelho. Loja no Ipiranga, em São José/SC."
+      ],
+      "palavras": [
+        "\"troca de bateria celular\"",
+        "\"trocar bateria iphone\"",
+        "\"bateria celular viciada\"",
+        "\"bateria estufada celular\"",
+        "\"celular descarregando rápido\"",
+        "[troca de bateria celular são josé]"
+      ]
+    },
+    {
+      "nome": "Celular molhado",
+      "caminho": ["celular-molhado", "sao-jose"],
+      "titulos": [
+        "Celular molhou? Não ligue",
+        "Celular caiu na água?",
+        "Banho químico em celular",
+        "Quanto antes, mais chance",
+        "Não coloque no arroz",
+        "Traga agora para avaliar",
+        "Recuperação de celular molhado",
+        "Garantia de 90 dias escrita",
+        "Assistência técnica São José",
+        "Conserto de celular Ipiranga",
+        "Angel Tech no Ipiranga",
+        "Orçamento sem compromisso",
+        "Fale direto com quem conserta",
+        "Orçamento rápido no WhatsApp",
+        "Loja física em São José, SC"
+      ],
+      "fixar": { "1": ["Celular molhou? Não ligue", "Celular caiu na água?"] },
+      "descricoes": [
+        "Molhou? Não ligue o aparelho. Traga agora que a chance de salvar é maior.",
+        "Não coloque no arroz nem no carregador. Desligue e traga para avaliação o quanto antes.",
+        "Banho químico feito por técnico. Se não compensar consertar, a gente fala.",
+        "Você fala direto com quem conserta o seu aparelho. Loja no Ipiranga, em São José/SC."
+      ],
+      "palavras": [
+        "\"celular molhou\"",
+        "\"celular caiu na água\"",
+        "\"banho químico celular\"",
+        "\"celular molhado conserto\"",
+        "\"celular caiu na água o que fazer\""
+      ]
+    }
+  ],
+  "negativas": [
+    "curso", "apostila", "pdf", "tutorial", "como trocar", "sozinho", "vaga", "emprego",
+    "salário", "atacado", "fornecedor", "grátis", "mercado livre", "shopee", "aliexpress",
+    "comprar celular", "celular usado", "autorizada"
+  ],
+  "frases_destaque": [
+    "Garantia de 90 dias",
+    "Orçamento sem compromisso",
+    "Tela trocada em 40 min",
+    "Loja no Ipiranga",
+    "Fale com o técnico",
+    "Preço na frente"
+  ],
+  "sitelinks": [
+    { "texto": "Troca de tela", "l1": "A partir de R$ 190", "l2": "Pronta em 40 minutos" },
+    { "texto": "Troca de bateria", "l1": "Bateria viciada ou estufada", "l2": "Garantia de 90 dias escrita" },
+    { "texto": "Celular molhado", "l1": "Banho químico com técnico", "l2": "Não ligue, traga agora" },
+    { "texto": "Películas e acessórios", "l1": "Películas de vidro e capas", "l2": "Na loja do Ipiranga" },
+    { "texto": "Chamar no WhatsApp", "l1": "(48) 98865-0449", "l2": "Orçamento sem compromisso" },
+    { "texto": "Como chegar", "l1": "Ipiranga, São José/SC", "l2": "Loja física" }
+  ],
+  "snippets": {
+    "cabecalho": "Serviços",
+    "valores": [
+      "Troca de tela", "Troca de bateria", "Banho químico", "Películas e acessórios",
+      "Desbloqueio Android", "Remoção de vírus", "Notebook e computador", "Impressoras"
+    ]
+  }
+}
