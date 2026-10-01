@@ -15,7 +15,7 @@ música de terceiros nem problema de direitos autorais.
 | 13,8–17,4 s | Molhou? | **NÃO LIGA O APARELHO.** "Traz agora que a chance de salvar é maior." · Banho químico |
 | 17,4–21,6 s | Serviços | Bateria, banho químico, películas e acessórios, notebook e computador, impressoras, desbloqueio Android, limpeza e remoção de vírus |
 | 21,6–24,4 s | Orçamento | **ORÇAMENTO SEM COMPROMISSO.** "Se não compensar consertar, a gente fala." |
-| 24,4–29 s | Final | Logo oficial, Ipiranga · São José · SC, botão **CHAMA NO WHATSAPP** e (48) 98865-0449 |
+| 24,4–29 s | Final | Logo oficial, Rua José Antônio Pereira · Ipiranga · São José/SC, botão **CHAMA NO WHATSAPP** e (48) 98865-0449 |
 
 Segue o kit de marca (v1, agosto/2026): fundo azul noite `#0C1C33`, azul Angel
 `#1C89DC` só em traços e destaques, âmbar `#F5A623` só no preço, no botão e no

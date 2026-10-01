@@ -825,24 +825,25 @@ function sceneFinal(ctx, t, A) {
     ctx.restore();
   }
 
-  anim(ctx, t, 25.0, { y: 905 }, () => {
-    const label = 'Ipiranga · São José · SC';
+  anim(ctx, t, 25.0, { y: 925 }, () => {
+    const rua = 'Rua José Antônio Pereira';
     ctx.save();
     setFont(ctx, 46, 500, 'Inter', 0);
-    const tw = ctx.measureText(label).width;
+    const tw = ctx.measureText(rua).width;
     ctx.restore();
     const total = 36 + 18 + tw;
     const sx = W / 2 - total / 2;
     pin(ctx, sx + 18, 890, 40, C.angel);
-    txt(ctx, label, sx + 54, 905, { size: 46, weight: 500, font: 'Inter', align: 'left', alpha: 0.9 });
+    txt(ctx, rua, sx + 54, 905, { size: 46, weight: 500, font: 'Inter', align: 'left' });
+    txt(ctx, 'Ipiranga · São José/SC', W / 2, 965, { size: 40, weight: 500, font: 'Inter', alpha: 0.8 });
   });
 
-  anim(ctx, t, 25.3, { y: 1080, dy: 0, scale: 0.6, dur: 0.4, curve: ease.back }, () => {
+  anim(ctx, t, 25.3, { y: 1125, dy: 0, scale: 0.6, dur: 0.4, curve: ease.back }, () => {
     const bw = 820;
     const bh = 144;
     const pulse = t > 25.8 ? 1 + 0.03 * Math.sin((t - 25.8) * Math.PI * 2 * 0.9) : 1;
     ctx.save();
-    ctx.translate(W / 2, 1080);
+    ctx.translate(W / 2, 1125);
     ctx.scale(pulse, pulse);
     ctx.beginPath();
     ctx.roundRect(-bw / 2, -bh / 2, bw, bh, bh / 2);
@@ -863,9 +864,9 @@ function sceneFinal(ctx, t, A) {
     ctx.restore();
   });
 
-  anim(ctx, t, 25.6, { y: 1275 }, () => txt(ctx, '(48) 98865-0449', W / 2, 1275, { size: 88 }));
-  anim(ctx, t, 25.9, { y: 1355 }, () =>
-    txt(ctx, 'Garantia de 90 dias por escrito.', W / 2, 1355, { size: 42, weight: 400, font: 'Inter', alpha: 0.8 }));
+  anim(ctx, t, 25.6, { y: 1315 }, () => txt(ctx, '(48) 98865-0449', W / 2, 1315, { size: 88 }));
+  anim(ctx, t, 25.9, { y: 1395 }, () =>
+    txt(ctx, 'Garantia de 90 dias por escrito.', W / 2, 1395, { size: 42, weight: 400, font: 'Inter', alpha: 0.8 }));
 }
 
 function drawSweeps(ctx, t) {

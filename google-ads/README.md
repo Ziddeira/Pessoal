@@ -1,7 +1,8 @@
 # Angel Tech · Campanha Google Ads
 
 Pacote pronto para subir uma campanha local focada em conversão (ligação e
-WhatsApp) para a assistência técnica do Ipiranga, em São José/SC.
+WhatsApp) para a assistência técnica da Rua José Antônio Pereira, Ipiranga,
+São José/SC (CEP 88111-490).
 
 | Arquivo | Para quê |
 |---|---|
@@ -32,8 +33,10 @@ do kit de marca: **preço e prazo na frente, garantia sempre citada.**
 ## Configuração recomendada
 
 - **Tipo:** Pesquisa, só Rede de Pesquisa (desmarque Parceiros de pesquisa e Display).
-- **Local:** raio de 5 a 8 km a partir da loja, com a opção **"Presença: pessoas
-  que estão ou estão regularmente nos locais segmentados"**. Sem isso o anúncio
+- **Local:** raio de 5 a 8 km a partir da loja (Rua José Antônio Pereira,
+  Ipiranga, CEP 88111-490; use o pino do Perfil da Empresa no Google), com a
+  opção **"Presença: pessoas que estão ou estão regularmente nos locais
+  segmentados"**. Sem isso o anúncio
   aparece para quem só pesquisa sobre São José estando longe.
 - **Programação:** só no horário de atendimento. A loja fecha às 18h no
   inverno, e uma ligação que ninguém atende é um clique pago perdido.

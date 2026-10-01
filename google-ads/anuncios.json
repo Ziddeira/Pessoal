@@ -19,14 +19,14 @@
         "Tela de iPhone e Android",
         "Preço na frente, sem enrolação",
         "Orçamento rápido no WhatsApp",
-        "Loja física em São José, SC",
+        "Na Rua José Antônio Pereira",
         "Peça com garantia de 90 dias"
       ],
       "fixar": { "1": ["Troca de tela em 40 minutos", "Tela quebrou? Troca hoje"], "2": ["Tela trocada a partir de R$190"] },
       "descricoes": [
         "Tela trocada em 40 minutos, a partir de R$ 190, com garantia de 90 dias por escrito.",
         "Orçamento sem compromisso. Se não compensar consertar, a gente fala. Chame agora.",
-        "Você fala direto com quem conserta o seu aparelho. Loja no Ipiranga, em São José/SC.",
+        "Fale direto com quem conserta. Loja na Rua José Antônio Pereira, Ipiranga, São José/SC.",
         "Também fazemos troca de bateria, banho químico, películas, acessórios e notebooks."
       ],
       "palavras": [
@@ -59,14 +59,14 @@
         "Fale direto com quem conserta",
         "Preço na frente, sem enrolação",
         "Orçamento rápido no WhatsApp",
-        "Loja física em São José, SC"
+        "Na Rua José Antônio Pereira"
       ],
       "fixar": { "1": ["Troca de bateria de celular", "Bateria viciada ou estufada?"] },
       "descricoes": [
         "Celular descarregando rápido ou bateria estufada? Troca com garantia de 90 dias escrita.",
         "Bateria estufada pode forçar e danificar a tela. Traga para avaliar antes de piorar.",
         "Orçamento sem compromisso. Se não compensar consertar, a gente fala. Chame agora.",
-        "Você fala direto com quem conserta o seu aparelho. Loja no Ipiranga, em São José/SC."
+        "Fale direto com quem conserta. Loja na Rua José Antônio Pereira, Ipiranga, São José/SC."
       ],
       "palavras": [
         "\"troca de bateria celular\"",
@@ -95,14 +95,14 @@
         "Orçamento sem compromisso",
         "Fale direto com quem conserta",
         "Orçamento rápido no WhatsApp",
-        "Loja física em São José, SC"
+        "Na Rua José Antônio Pereira"
       ],
       "fixar": { "1": ["Celular molhou? Não ligue", "Celular caiu na água?"] },
       "descricoes": [
         "Molhou? Não ligue o aparelho. Traga agora que a chance de salvar é maior.",
         "Não coloque no arroz nem no carregador. Desligue e traga para avaliação o quanto antes.",
         "Banho químico feito por técnico. Se não compensar consertar, a gente fala.",
-        "Você fala direto com quem conserta o seu aparelho. Loja no Ipiranga, em São José/SC."
+        "Fale direto com quem conserta. Loja na Rua José Antônio Pereira, Ipiranga, São José/SC."
       ],
       "palavras": [
         "\"celular molhou\"",
@@ -132,7 +132,7 @@
     { "texto": "Celular molhado", "l1": "Banho químico com técnico", "l2": "Não ligue, traga agora" },
     { "texto": "Películas e acessórios", "l1": "Películas de vidro e capas", "l2": "Na loja do Ipiranga" },
     { "texto": "Chamar no WhatsApp", "l1": "(48) 98865-0449", "l2": "Orçamento sem compromisso" },
-    { "texto": "Como chegar", "l1": "Ipiranga, São José/SC", "l2": "Loja física" }
+    { "texto": "Como chegar", "l1": "Rua José Antônio Pereira", "l2": "Ipiranga, São José/SC" }
   ],
   "snippets": {
     "cabecalho": "Serviços",

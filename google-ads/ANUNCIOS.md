@@ -24,14 +24,14 @@
 | 11 | Tela de iPhone e Android | 24/30 |  |
 | 12 | Preço na frente, sem enrolação | 30/30 |  |
 | 13 | Orçamento rápido no WhatsApp | 28/30 |  |
-| 14 | Loja física em São José, SC | 27/30 |  |
+| 14 | Na Rua José Antônio Pereira | 27/30 |  |
 | 15 | Peça com garantia de 90 dias | 28/30 |  |
 
 | # | Descrição | Caracteres |
 |---|---|---|
 | 1 | Tela trocada em 40 minutos, a partir de R$ 190, com garantia de 90 dias por escrito. | 84/90 |
 | 2 | Orçamento sem compromisso. Se não compensar consertar, a gente fala. Chame agora. | 81/90 |
-| 3 | Você fala direto com quem conserta o seu aparelho. Loja no Ipiranga, em São José/SC. | 84/90 |
+| 3 | Fale direto com quem conserta. Loja na Rua José Antônio Pereira, Ipiranga, São José/SC. | 87/90 |
 | 4 | Também fazemos troca de bateria, banho químico, películas, acessórios e notebooks. | 82/90 |
 
 **Palavras-chave:** `"troca de tela celular"`, `"conserto tela celular"`, `"tela quebrada celular"`, `"troca de tela iphone"`, `"trocar tela celular são josé"`, `"assistência técnica celular são josé"`, `"assistência técnica celular perto de mim"`, `[conserto de celular ipiranga]`, `[troca de tela celular são josé]`
@@ -56,14 +56,14 @@
 | 12 | Fale direto com quem conserta | 29/30 |  |
 | 13 | Preço na frente, sem enrolação | 30/30 |  |
 | 14 | Orçamento rápido no WhatsApp | 28/30 |  |
-| 15 | Loja física em São José, SC | 27/30 |  |
+| 15 | Na Rua José Antônio Pereira | 27/30 |  |
 
 | # | Descrição | Caracteres |
 |---|---|---|
 | 1 | Celular descarregando rápido ou bateria estufada? Troca com garantia de 90 dias escrita. | 88/90 |
 | 2 | Bateria estufada pode forçar e danificar a tela. Traga para avaliar antes de piorar. | 84/90 |
 | 3 | Orçamento sem compromisso. Se não compensar consertar, a gente fala. Chame agora. | 81/90 |
-| 4 | Você fala direto com quem conserta o seu aparelho. Loja no Ipiranga, em São José/SC. | 84/90 |
+| 4 | Fale direto com quem conserta. Loja na Rua José Antônio Pereira, Ipiranga, São José/SC. | 87/90 |
 
 **Palavras-chave:** `"troca de bateria celular"`, `"trocar bateria iphone"`, `"bateria celular viciada"`, `"bateria estufada celular"`, `"celular descarregando rápido"`, `[troca de bateria celular são josé]`
 
@@ -87,14 +87,14 @@
 | 12 | Orçamento sem compromisso | 25/30 |  |
 | 13 | Fale direto com quem conserta | 29/30 |  |
 | 14 | Orçamento rápido no WhatsApp | 28/30 |  |
-| 15 | Loja física em São José, SC | 27/30 |  |
+| 15 | Na Rua José Antônio Pereira | 27/30 |  |
 
 | # | Descrição | Caracteres |
 |---|---|---|
 | 1 | Molhou? Não ligue o aparelho. Traga agora que a chance de salvar é maior. | 73/90 |
 | 2 | Não coloque no arroz nem no carregador. Desligue e traga para avaliação o quanto antes. | 87/90 |
 | 3 | Banho químico feito por técnico. Se não compensar consertar, a gente fala. | 74/90 |
-| 4 | Você fala direto com quem conserta o seu aparelho. Loja no Ipiranga, em São José/SC. | 84/90 |
+| 4 | Fale direto com quem conserta. Loja na Rua José Antônio Pereira, Ipiranga, São José/SC. | 87/90 |
 
 **Palavras-chave:** `"celular molhou"`, `"celular caiu na água"`, `"banho químico celular"`, `"celular molhado conserto"`, `"celular caiu na água o que fazer"`
 
@@ -116,7 +116,7 @@
 | Celular molhado | Banho químico com técnico | Não ligue, traga agora |
 | Películas e acessórios | Películas de vidro e capas | Na loja do Ipiranga |
 | Chamar no WhatsApp | (48) 98865-0449 | Orçamento sem compromisso |
-| Como chegar | Ipiranga, São José/SC | Loja física |
+| Como chegar | Rua José Antônio Pereira | Ipiranga, São José/SC |
 
 ### Snippet estruturado · Serviços
 Troca de tela, Troca de bateria, Banho químico, Películas e acessórios, Desbloqueio Android, Remoção de vírus, Notebook e computador, Impressoras
