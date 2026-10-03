@@ -1,0 +1,208 @@
+{
+  "titulo": "Por que a Rússia e a Ucrânia estão em guerra?",
+  "observacao": "Cada frase tem o texto exibido na legenda (texto) e, quando a pronúncia da voz sintética exige, a grafia para a narração (fala). Cada plano entra na frase s, a uma fração f da duração dela.",
+  "cenas": [
+    {
+      "id": "gancho",
+      "titulo": "Gancho",
+      "frases": [
+        { "texto": "Madrugada de 24 de fevereiro de 2022.", "fala": "Madrugada de vinte e quatro de fevereiro de dois mil e vinte e dois." },
+        { "texto": "Mísseis russos atingem cidades por toda a Ucrânia, e colunas de tanques cruzam a fronteira." },
+        { "texto": "É a maior invasão na Europa desde a Segunda Guerra Mundial." },
+        { "texto": "Mas essa história não começou naquela madrugada." },
+        { "texto": "Ela começou há mais de mil anos." }
+      ],
+      "planos": [
+        { "n": 1, "s": 0, "f": 0 },
+        { "n": 2, "s": 1, "f": 0 },
+        { "n": 3, "s": 2, "f": 0 },
+        { "n": 4, "s": 3, "f": 0 }
+      ]
+    },
+    {
+      "id": "abertura",
+      "titulo": "Abertura",
+      "pausaAntes": 0.6,
+      "frases": [
+        { "texto": "Bem-vindo ao Guerras do Presente.", "pausaDepois": 1.4 },
+        { "texto": "Esta é a parte um de três sobre Rússia e Ucrânia." },
+        { "texto": "Em menos de cinco minutos, você vai entender como dois povos que já dividiram o mesmo Estado chegaram à guerra." }
+      ],
+      "planos": [
+        { "n": 5, "s": 0, "f": 0 },
+        { "n": 6, "s": 1, "f": 0 },
+        { "n": 7, "s": 2, "f": 0.42 }
+      ]
+    },
+    {
+      "id": "rus",
+      "titulo": "A Rus de Kiev",
+      "frases": [
+        { "texto": "Tudo começa na Rus de Kiev, um Estado medieval que surgiu no século nove às margens do rio Dniepre, com capital em Kiev.", "fala": "Tudo começa na Rus de Kíev, um Estado medieval que surgiu no século nove, às margens do rio Dniépre, com capital em Kíev." },
+        { "texto": "Em 988, o príncipe Vladimir se converteu ao cristianismo ortodoxo, e essa fé se espalhou pela região.", "fala": "Em novecentos e oitenta e oito, o príncipe Vladímir se converteu ao cristianismo ortodoxo, e essa fé se espalhou pela região." },
+        { "texto": "Hoje, russos, ucranianos e belarussos veem a Rus como o seu berço." },
+        { "texto": "E é aí que mora a disputa: quem é o herdeiro dessa história?", "fala": "E é aí que mora a disputa. Quem é o herdeiro dessa história?" }
+      ],
+      "planos": [
+        { "n": 8, "s": 0, "f": 0 },
+        { "n": 9, "s": 1, "f": 0 },
+        { "n": 10, "s": 2, "f": 0 },
+        { "n": 11, "s": 3, "f": 0.45 }
+      ]
+    },
+    {
+      "id": "imperio",
+      "titulo": "O Império Russo",
+      "frases": [
+        { "texto": "Depois das invasões mongóis, no século treze, o centro do poder foi se deslocando para o norte, até Moscou." },
+        { "texto": "Séculos mais tarde, o Império Russo passou a dominar a maior parte da Ucrânia." },
+        { "texto": "Para os czares, os ucranianos eram apenas “pequenos russos”.", "fala": "Para os czares, os ucranianos eram apenas, pequenos russos." },
+        { "texto": "Em 1876, livros em língua ucraniana chegaram a ser proibidos.", "fala": "Em mil oitocentos e setenta e seis, livros em língua ucraniana chegaram a ser proibidos." }
+      ],
+      "planos": [
+        { "n": 12, "s": 0, "f": 0 },
+        { "n": 13, "s": 1, "f": 0 },
+        { "n": 14, "s": 2, "f": 0 },
+        { "n": 15, "s": 3, "f": 0 }
+      ]
+    },
+    {
+      "id": "urss",
+      "titulo": "URSS e Holodomor",
+      "frases": [
+        { "texto": "Em 1922, a Ucrânia se tornou uma das repúblicas fundadoras da União Soviética.", "fala": "Em mil novecentos e vinte e dois, a Ucrânia se tornou uma das repúblicas fundadoras da União Soviética." },
+        { "texto": "Dez anos depois veio a tragédia." },
+        { "texto": "A fome de 1932 e 1933, provocada pela coletivização forçada de Stalin, matou milhões de ucranianos.", "fala": "A fome de mil novecentos e trinta e dois e trinta e três, provocada pela coletivização forçada de Stálin, matou milhões de ucranianos." },
+        { "texto": "No país, ela é chamada de Holodomor, “matar pela fome”, e até hoje marca a memória nacional.", "fala": "No país, ela é chamada de Holodomór, matar pela fome, e até hoje marca a memória nacional." }
+      ],
+      "planos": [
+        { "n": 16, "s": 0, "f": 0 },
+        { "n": 17, "s": 2, "f": 0 },
+        { "n": 18, "s": 2, "f": 0.72 },
+        { "n": 19, "s": 3, "f": 0 }
+      ]
+    },
+    {
+      "id": "independencia",
+      "titulo": "Independência",
+      "frases": [
+        { "texto": "Em 1991, a União Soviética desmoronou.", "fala": "Em mil novecentos e noventa e um, a União Soviética desmoronou." },
+        { "texto": "Em dezembro daquele ano, mais de 90% dos ucranianos votaram pela independência, com maioria em todas as regiões, até na Crimeia.", "fala": "Em dezembro daquele ano, mais de noventa por cento dos ucranianos votaram pela independência, com maioria em todas as regiões, até na Crimeia." }
+      ],
+      "planos": [
+        { "n": 20, "s": 0, "f": 0 },
+        { "n": 21, "s": 1, "f": 0.22 },
+        { "n": 22, "s": 1, "f": 0.66 }
+      ]
+    },
+    {
+      "id": "budapeste",
+      "titulo": "O Memorando de Budapeste",
+      "frases": [
+        { "texto": "A Ucrânia herdou o terceiro maior arsenal nuclear do mundo." },
+        { "texto": "Em 1994, assinou o Memorando de Budapeste: entregou as ogivas, e em troca Rússia, Estados Unidos e Reino Unido se comprometeram a respeitar suas fronteiras.", "fala": "Em mil novecentos e noventa e quatro, assinou o Memorando de Budapeste. Entregou as ogivas, e em troca, Rússia, Estados Unidos e Reino Unido se comprometeram a respeitar suas fronteiras." },
+        { "texto": "Guarde essa promessa.", "pausaDepois": 0.8 }
+      ],
+      "planos": [
+        { "n": 23, "s": 0, "f": 0 },
+        { "n": 24, "s": 1, "f": 0.36 },
+        { "n": 25, "s": 1, "f": 0.56 },
+        { "n": 26, "s": 2, "f": 0 }
+      ]
+    },
+    {
+      "id": "dois-lados",
+      "titulo": "Entre dois lados",
+      "frases": [
+        { "texto": "Nas décadas seguintes, a Ucrânia se dividiu entre olhar para a Europa ou para a Rússia." },
+        { "texto": "Em 2004, a Revolução Laranja levou à anulação de uma eleição considerada fraudada.", "fala": "Em dois mil e quatro, a Revolução Laranja levou à anulação de uma eleição considerada fraudada." },
+        { "texto": "Ao mesmo tempo, a OTAN, a aliança militar do Ocidente, crescia para o leste.", "fala": "Ao mesmo tempo, a Otan, a aliança militar do Ocidente, crescia para o leste." },
+        { "texto": "Para Moscou, uma ameaça." },
+        { "texto": "Para os vizinhos, uma garantia de segurança." }
+      ],
+      "planos": [
+        { "n": 27, "s": 0, "f": 0 },
+        { "n": 28, "s": 1, "f": 0 },
+        { "n": 29, "s": 2, "f": 0 },
+        { "n": 30, "s": 3, "f": 0 }
+      ]
+    },
+    {
+      "id": "euromaidan",
+      "titulo": "Euromaidan",
+      "frases": [
+        { "texto": "Em novembro de 2013, o presidente Viktor Yanukovych, aliado de Moscou, desistiu de assinar um acordo com a União Europeia.", "fala": "Em novembro de dois mil e treze, o presidente Víktor Ianukóvitch, aliado de Moscou, desistiu de assinar um acordo com a União Europeia." },
+        { "texto": "Milhares de pessoas ocuparam a Praça da Independência, em Kiev, a Maidan.", "fala": "Milhares de pessoas ocuparam a Praça da Independência, em Kíev, a Maidán." },
+        { "texto": "Foram três meses de protestos e mais de cem mortos." },
+        { "texto": "Em fevereiro de 2014, Yanukovych fugiu para a Rússia.", "fala": "Em fevereiro de dois mil e quatorze, Ianukóvitch fugiu para a Rússia." }
+      ],
+      "planos": [
+        { "n": 31, "s": 0, "f": 0 },
+        { "n": 32, "s": 1, "f": 0 },
+        { "n": 33, "s": 3, "f": 0 }
+      ]
+    },
+    {
+      "id": "crimeia",
+      "titulo": "Crimeia e Donbas",
+      "frases": [
+        { "texto": "A resposta russa veio em poucos dias." },
+        { "texto": "Soldados sem identificação tomaram a Crimeia, e em março a Rússia anexou a península, depois de um referendo que a Assembleia Geral da ONU declarou inválido." },
+        { "texto": "Em abril, separatistas apoiados por Moscou pegaram em armas no Donbas, no leste.", "fala": "Em abril, separatistas apoiados por Moscou pegaram em armas no Donbás, no leste." },
+        { "texto": "A promessa de Budapeste estava quebrada.", "pausaDepois": 0.8 }
+      ],
+      "planos": [
+        { "n": 34, "s": 0, "f": 0 },
+        { "n": 35, "s": 1, "f": 0.38 },
+        { "n": 36, "s": 2, "f": 0 },
+        { "n": 37, "s": 3, "f": 0 }
+      ]
+    },
+    {
+      "id": "minsk",
+      "titulo": "Os Acordos de Minsk",
+      "frases": [
+        { "texto": "Os Acordos de Minsk, de 2014 e 2015, tentaram congelar o conflito, mas nunca foram cumpridos.", "fala": "Os Acordos de Minsk, de dois mil e quatorze e dois mil e quinze, tentaram congelar o conflito, mas nunca foram cumpridos." },
+        { "texto": "Em oito anos, a guerra no Donbas matou cerca de 14 mil pessoas, longe das manchetes.", "fala": "Em oito anos, a guerra no Donbás matou cerca de quatorze mil pessoas, longe das manchetes." }
+      ],
+      "planos": [
+        { "n": 38, "s": 0, "f": 0 },
+        { "n": 39, "s": 0, "f": 0.72 }
+      ]
+    },
+    {
+      "id": "caminho-2022",
+      "titulo": "O caminho até 2022",
+      "frases": [
+        { "texto": "Em julho de 2021, Putin publicou um artigo dizendo que russos e ucranianos são “um só povo”.", "fala": "Em julho de dois mil e vinte e um, Pútin publicou um artigo dizendo que russos e ucranianos são, um só povo." },
+        { "texto": "A velha disputa pela herança da Rus de Kiev estava de volta.", "fala": "A velha disputa pela herança da Rus de Kíev estava de volta." },
+        { "texto": "Meses depois, a Rússia reuniu mais de cem mil soldados na fronteira e exigiu a garantia de que a Ucrânia nunca entraria na OTAN.", "fala": "Meses depois, a Rússia reuniu mais de cem mil soldados na fronteira, e exigiu a garantia de que a Ucrânia nunca entraria na Otan." },
+        { "texto": "O Ocidente recusou." },
+        { "texto": "Em 21 de fevereiro de 2022, Putin reconheceu as repúblicas separatistas do Donbas.", "fala": "Em vinte e um de fevereiro de dois mil e vinte e dois, Pútin reconheceu as repúblicas separatistas do Donbás." },
+        { "texto": "Três dias depois, ordenou a invasão.", "pausaDepois": 0.8 }
+      ],
+      "planos": [
+        { "n": 40, "s": 0, "f": 0 },
+        { "n": 41, "s": 2, "f": 0 },
+        { "n": 42, "s": 2, "f": 0.62 },
+        { "n": 43, "s": 4, "f": 0 }
+      ]
+    },
+    {
+      "id": "fechamento",
+      "titulo": "Fechamento",
+      "frases": [
+        { "texto": "Então, por que a Rússia invadiu a Ucrânia?" },
+        { "texto": "Na visão do Kremlin, para impedir que um vizinho que considera parte da sua história se juntasse ao Ocidente.", "fala": "Na visão do Krêmlin, para impedir que um vizinho, que considera parte da sua história, se juntasse ao Ocidente." },
+        { "texto": "Na visão dos ucranianos, a guerra é uma luta pela sobrevivência do próprio país." },
+        { "texto": "No próximo vídeo: o que aconteceu desde aquela madrugada, e por que, mais de quatro anos depois, a guerra ainda não acabou.", "fala": "No próximo vídeo, o que aconteceu desde aquela madrugada, e por que, mais de quatro anos depois, a guerra ainda não acabou." },
+        { "texto": "Te vejo lá.", "pausaDepois": 3.5 }
+      ],
+      "planos": [
+        { "n": 44, "s": 0, "f": 0 },
+        { "n": 45, "s": 3, "f": 0 },
+        { "n": 46, "s": 4, "f": 0 }
+      ]
+    }
+  ]
+}

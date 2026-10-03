@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guerras do Presente · Rússia x Ucrânia 1/3</title>
+<style>
+  @font-face { font-family: 'Inter'; src: url(fonts/Inter.woff2) format('woff2'); font-weight: 100 900; }
+  @font-face { font-family: 'Montserrat'; src: url(fonts/Montserrat.woff2) format('woff2'); font-weight: 100 900; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; }
+  body {
+    background: #04070e;
+    color: #e8eef6;
+    font: 500 15px/1.4 Inter, system-ui, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    padding: 16px;
+  }
+  canvas { width: min(100%, 1280px); height: auto; aspect-ratio: 16 / 9; background: #070D18; border-radius: 12px; }
+  canvas.vertical { width: auto; height: min(80vh, 900px); aspect-ratio: 9 / 16; }
+  .bar { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; width: min(100%, 1280px); }
+  input[type=range] { flex: 1; min-width: 200px; accent-color: #e5363f; }
+  button, label { font: 700 13px Montserrat, sans-serif; letter-spacing: .03em; }
+  button { border: 1px solid rgba(255,255,255,.35); background: transparent; color: inherit; padding: 9px 14px; border-radius: 999px; cursor: pointer; }
+  button:hover { background: rgba(255,255,255,.08); }
+  label { display: flex; gap: 6px; align-items: center; opacity: .85; }
+  .time { font-variant-numeric: tabular-nums; min-width: 110px; text-align: right; opacity: .8; }
+  .cena { opacity: .7; font-size: 13px; min-height: 20px; }
+  body.render { padding: 0; background: #000; }
+  body.render > :not(canvas) { display: none; }
+  body.render canvas { width: auto; height: auto; border-radius: 0; aspect-ratio: auto; }
+</style>
+</head>
+<body>
+  <canvas id="c" width="1920" height="1080"></canvas>
+  <div class="bar">
+    <button id="play">▶ Tocar</button>
+    <input id="seek" type="range" min="0" max="1000" step="1" value="0">
+    <span class="time" id="time">0:00 / 0:00</span>
+  </div>
+  <div class="bar">
+    <label><input type="checkbox" id="guia"> guia 9:16</label>
+    <label><input type="checkbox" id="vert"> ver em 9:16</label>
+    <label><input type="checkbox" id="leg"> legendas</label>
+    <span class="cena" id="cena"></span>
+  </div>
+  <audio id="audio" src="out/audio.wav" preload="auto"></audio>
+<script type="module">
+  import { carregarVideo } from './src/video.js';
+  import { SEGURO } from './src/desenho.js';
+
+  const canvas = document.getElementById('c');
+  const ctx = canvas.getContext('2d');
+  const render = location.search.includes('render');
+  if (render) document.body.classList.add('render');
+
+  await Promise.all([
+    document.fonts.load('800 40px Montserrat'), document.fonts.load('700 40px Montserrat'),
+    document.fonts.load('600 40px Montserrat'), document.fonts.load('500 20px Inter'), document.fonts.load('600 20px Inter'),
+  ]);
+  const v = await carregarVideo('.');
+
+  // Formato: 16:9 (1920x1080) ou 9:16 (1080x1920, recorte nítido da coluna central).
+  function formato(vertical) {
+    if (vertical) {
+      canvas.width = 1080;
+      canvas.height = 1920;
+    } else {
+      canvas.width = 1920;
+      canvas.height = 1080;
+    }
+  }
+  function desenhar(t, o = {}) {
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    if (o.vertical) {
+      const s = 1920 / 1080;
+      ctx.setTransform(s, 0, 0, s, -(SEGURO.cx - 540 / s) * s, 0);
+    }
+    v.quadro(ctx, t, o);
+  }
+
+  // API usada pelo render.mjs
+  window.video = {
+    ready: true,
+    duracao: v.duracao,
+    linha: v.L,
+    formato,
+    quadro(t, o = {}) {
+      desenhar(t, o);
+      return canvas.toDataURL(o.jpeg ? 'image/jpeg' : 'image/png', 0.95);
+    },
+  };
+  if (!render) iniciarPlayer();
+
+  function iniciarPlayer() {
+
+  // ------------------------------------------------------------ player
+  const audio = document.getElementById('audio');
+  const seek = document.getElementById('seek');
+  const btn = document.getElementById('play');
+  const $ = (id) => document.getElementById(id);
+  let tocando = false;
+  let t = 0;
+  let t0 = 0;
+  let r0 = 0;
+  const mmss = (s) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, '0')}`;
+  const opts = () => ({ guia: $('guia').checked && !$('vert').checked, legendas: $('leg').checked, vertical: $('vert').checked });
+
+  $('vert').onchange = () => {
+    formato($('vert').checked);
+    canvas.classList.toggle('vertical', $('vert').checked);
+    desenhar(t, opts());
+  };
+  for (const id of ['guia', 'leg']) $(id).onchange = () => desenhar(t, opts());
+
+  function tick(now) {
+    if (tocando) {
+      t = audio.readyState >= 2 && !audio.paused ? audio.currentTime : r0 + (now - t0) / 1000;
+      if (t >= v.duracao) {
+        tocando = false;
+        btn.textContent = '▶ Tocar';
+        audio.pause();
+      }
+    }
+    desenhar(t, opts());
+    seek.value = Math.round((t / v.duracao) * 1000);
+    $('time').textContent = `${mmss(t)} / ${mmss(v.duracao)}`;
+    const c = v.L.cenas.find((c) => t >= c.inicio && t < c.fim);
+    $('cena').textContent = c ? `Cena: ${c.titulo}` : '';
+    requestAnimationFrame(tick);
+  }
+  btn.onclick = () => {
+    tocando = !tocando;
+    btn.textContent = tocando ? '❚❚ Pausar' : '▶ Tocar';
+    if (tocando) {
+      if (t >= v.duracao - 0.1) t = 0;
+      r0 = t;
+      t0 = performance.now();
+      audio.currentTime = t;
+      audio.play().catch(() => {});
+    } else audio.pause();
+  };
+  seek.oninput = () => {
+    t = (seek.value / 1000) * v.duracao;
+    r0 = t;
+    t0 = performance.now();
+    audio.currentTime = t;
+  };
+  requestAnimationFrame(tick);
+  }
+</script>
+</body>
+</html>
