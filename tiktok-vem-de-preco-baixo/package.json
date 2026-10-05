@@ -1,0 +1,15 @@
+{
+  "name": "vem-de-preco-baixo-tiktok",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Vídeo de divulgação 9:16 do grupo Vem de Preço Baixo para TikTok, desenhado em JavaScript (canvas + Web Audio).",
+  "type": "module",
+  "scripts": {
+    "dev": "node render.mjs --serve",
+    "render": "node render.mjs",
+    "stills": "node render.mjs --stills 0.5,1.7,2.6,3.5,5.3,8.0,10.8,13.0,14.8,15.9,16.9,18.4,20.5"
+  },
+  "devDependencies": {
+    "playwright": "1.56.1"
+  }
+}
