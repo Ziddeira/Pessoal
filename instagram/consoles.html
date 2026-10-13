@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Angel Tech · Consoles</title>
+<style>
+  @font-face { font-family: 'Inter'; src: url(../reels/fonts/Inter.woff2) format('woff2'); font-weight: 100 900; }
+  @font-face { font-family: 'Montserrat'; src: url(../reels/fonts/Montserrat.woff2) format('woff2'); font-weight: 100 900; }
+  :root { --noite: #0C1C33; --angel: #1C89DC; --ambar: #F5A623; --branco: #fff; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #222; display: flex; gap: 40px; padding: 40px; align-items: flex-start; }
+
+  .arte {
+    position: relative;
+    overflow: hidden;
+    width: 1080px;
+    color: var(--branco);
+    font-family: Inter, sans-serif;
+    background:
+      radial-gradient(ellipse 70% 45% at 50% 52%, rgba(28,137,220,.16), rgba(28,137,220,0) 70%),
+      var(--noite);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .arte::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, rgba(4,10,20,0) 60%, rgba(4,10,20,.45));
+    pointer-events: none;
+  }
+  .post { height: 1350px; padding: 56px 64px 48px; --logo: 190px; --card-h: 290px; }
+  .story { height: 1920px; padding: 250px 64px 0; --logo: 220px; --card-h: 300px; }
+
+  .circuito { position: absolute; top: 0; width: 360px; height: 300px; opacity: .9; }
+  .circuito.esq { left: 0; }
+  .circuito.dir { right: 0; transform: scaleX(-1); }
+  .story .circuito { top: 120px; }
+
+  .logo { height: var(--logo); position: relative; z-index: 1; }
+
+  h1 {
+    margin-top: 30px;
+    font: 800 54px/1.08 Montserrat, sans-serif;
+    text-align: center;
+    letter-spacing: -.005em;
+    position: relative;
+    z-index: 1;
+  }
+  h1 span { color: var(--angel); }
+  .story h1 { font-size: 56px; margin-top: 36px; }
+
+  .grade {
+    margin-top: 34px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    position: relative;
+    z-index: 1;
+  }
+  .story .grade { margin-top: 40px; gap: 24px; }
+
+  .card {
+    height: var(--card-h);
+    border: 3px solid rgba(28,137,220,.55);
+    background: rgba(28,137,220,.07);
+    border-radius: 28px;
+    padding: 26px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .card header { display: flex; align-items: center; gap: 16px; }
+  .card svg { width: 62px; height: 40px; flex: none; }
+  .card h2 { font: 800 44px/1 Montserrat, sans-serif; letter-spacing: .01em; }
+  .card h2 small { font-size: 24px; color: var(--angel); margin-left: 6px; letter-spacing: .06em; }
+  .card ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .card li { font: 500 23px/1.3 Inter, sans-serif; padding-left: 30px; position: relative; }
+  .card li::before {
+    content: '';
+    position: absolute;
+    left: 2px;
+    top: 9px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 3px solid var(--angel);
+  }
+  .story .card { height: auto; padding: 28px 30px 30px; gap: 18px; }
+  .story .card h2 { font-size: 50px; }
+  .story .card li { font-size: 26px; }
+  .story .card li::before { top: 11px; }
+
+  .cta {
+    margin-top: 36px;
+    background: var(--ambar);
+    color: var(--noite);
+    border-radius: 999px;
+    padding: 24px 44px;
+    font: 800 38px/1 Montserrat, sans-serif;
+    letter-spacing: .01em;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    position: relative;
+    z-index: 1;
+  }
+  .cta svg { width: 38px; height: 38px; }
+  .story .cta { margin-top: 44px; font-size: 44px; padding: 28px 52px; }
+
+  .apoio { margin-top: 16px; font: 500 24px Inter, sans-serif; opacity: .85; position: relative; z-index: 1; }
+  .rodape {
+    margin-top: auto;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font: 500 22px Inter, sans-serif;
+    position: relative;
+    z-index: 1;
+  }
+  .rodape span { display: flex; align-items: center; gap: 10px; }
+  .rodape svg { width: 26px; height: 26px; flex: none; }
+  .story .apoio { font-size: 28px; margin-top: 22px; }
+  .story .rodape { margin-top: 36px; flex-direction: column; gap: 12px; font-size: 28px; }
+  .story .rodape svg { width: 30px; height: 30px; }
+</style>
+</head>
+<body>
+<template id="tpl">
+  <svg class="circuito esq" viewBox="0 0 360 300"></svg>
+  <svg class="circuito dir" viewBox="0 0 360 300"></svg>
+  <img class="logo" src="../reels/assets/logo-vertical.png" alt="Angel Tech">
+  <h1>DESBLOQUEIO E MANUTENÇÃO<br>DE <span>CONSOLES</span></h1>
+  <div class="grade">
+    <article class="card">
+      <header><svg class="pad"></svg><h2>PS3</h2></header>
+      <ul>
+        <li>Desbloqueio (custom firmware)</li>
+        <li>Mods avançados</li>
+        <li>Manutenção preventiva e corretiva</li>
+      </ul>
+    </article>
+    <article class="card">
+      <header><svg class="pad"></svg><h2>PS4<small>PRO</small></h2></header>
+      <ul>
+        <li>Desbloqueio (custom firmware)</li>
+        <li>Mods avançados</li>
+        <li>Manutenção preventiva e corretiva</li>
+      </ul>
+    </article>
+    <article class="card">
+      <header><svg class="pad"></svg><h2>PS5</h2></header>
+      <ul>
+        <li>Desbloqueio (custom firmware)</li>
+        <li>Mods</li>
+        <li>Limpeza e troca de pasta térmica</li>
+      </ul>
+    </article>
+    <article class="card">
+      <header><svg class="pad"></svg><h2>XBOX<small>360</small></h2></header>
+      <ul>
+        <li>Desbloqueio RGH/JTAG</li>
+        <li>Mods avançados</li>
+        <li>Conserto de hardware</li>
+      </ul>
+    </article>
+  </div>
+  <div class="cta">
+    <svg viewBox="0 0 24 24" fill="none" stroke="#0C1C33" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 20.5l1.6-5.4A8.4 8.4 0 1 1 21 11.5z"/></svg>
+    (48) 98865-0449
+  </div>
+  <p class="apoio">Orçamento sem compromisso. Fale direto com quem conserta.</p>
+  <div class="rodape">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="#1C89DC" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1" fill="#1C89DC"/></svg>@angeltech.sc</span>
+    <span><svg viewBox="0 0 24 24" fill="#1C89DC"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>Rua José Antônio Pereira, Ipiranga · São José/SC</span>
+  </div>
+</template>
+
+<section class="arte post" id="post-consoles"></section>
+<section class="arte story" id="story-consoles"></section>
+
+<script>
+function mulberry32(seed) {
+  return () => {
+    seed = (seed + 0x6d2b79f5) | 0;
+    let t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+// Trilhas de circuito em azul Angel (traço, nunca preenchimento), saindo da borda.
+function circuito(svg) {
+  const r = mulberry32(5);
+  let out = '';
+  for (let i = 0; i < 9; i++) {
+    let x = 0;
+    let y = 24 + i * 30 + r() * 10;
+    let d = `M${x} ${y}`;
+    x += 60 + r() * 90;
+    d += ` H${x}`;
+    const dy = (r() > 0.5 ? 1 : -1) * (14 + r() * 26);
+    x += Math.abs(dy);
+    y += dy;
+    d += ` L${x} ${y}`;
+    x += 30 + r() * 110;
+    d += ` H${x}`;
+    const a = (0.25 + r() * 0.4).toFixed(2);
+    out += `<path d="${d}" fill="none" stroke="rgba(28,137,220,${a})" stroke-width="2.5"/>`;
+    out += `<circle cx="${x}" cy="${y}" r="5" fill="none" stroke="rgba(28,137,220,${a})" stroke-width="2.5"/>`;
+    if (r() > 0.5) out += `<circle cx="${x}" cy="${y}" r="9" fill="rgba(28,137,220,${(a * 0.35).toFixed(2)})"/>`;
+  }
+  svg.innerHTML = out;
+}
+
+// Controle genérico desenhado em traço (sem logo de fabricante).
+const PAD = `
+  <path d="M18 6h28a14 14 0 0 1 14 13l1.5 11a6 6 0 0 1-10.6 4.6L45 28H19l-5.9 6.6A6 6 0 0 1 2.5 30L4 19A14 14 0 0 1 18 6z"
+        fill="none" stroke="#1C89DC" stroke-width="3.2" stroke-linejoin="round"/>
+  <path d="M16 13v9M11.5 17.5h9" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="45" cy="14" r="2.4" fill="#fff"/><circle cx="51" cy="19" r="2.4" fill="#fff"/>
+  <circle cx="39" cy="19" r="2.4" fill="#fff"/><circle cx="45" cy="24" r="2.4" fill="#fff"/>`;
+
+const tpl = document.getElementById('tpl');
+document.querySelectorAll('.arte').forEach((el) => {
+  el.append(tpl.content.cloneNode(true));
+  el.querySelectorAll('.circuito').forEach(circuito);
+  el.querySelectorAll('.pad').forEach((s) => {
+    s.setAttribute('viewBox', '0 0 64 40');
+    s.innerHTML = PAD;
+  });
+});
+
+window.pronto = Promise.all([
+  document.fonts.load('800 40px Montserrat'),
+  document.fonts.load('500 20px Inter'),
+  ...[...document.images].map((img) => img.decode().catch(() => {})),
+]).then(() => new Promise((r) => setTimeout(r, 200)));
+</script>
+</body>
+</html>
