@@ -28,6 +28,18 @@ diferenciam maiúsculas de minúsculas.
 
 Se os frames não forem encontrados, a abertura mostra um aviso explicando onde colocá-los.
 
+### Gerar os frames a partir de um vídeo
+
+Com o `ffmpeg` instalado, o `extrair-frames.sh` divide qualquer vídeo em 300 frames WEBP 1080p,
+distribuídos igualmente ao longo de toda a duração, e já salva em `frames/` com os nomes certos:
+
+```bash
+./extrair-frames.sh meu-video.mp4          # 300 frames, qualidade 78
+./extrair-frames.sh meu-video.mp4 300 85   # quantidade e qualidade opcionais
+```
+
+Vídeo na horizontal vira 1920×1080 e na vertical vira 1080×1920 (o lado menor fica com 1080 px).
+
 ## Como abrir
 
 Dá para abrir o `index.html` direto no navegador. Para testar como num site publicado:
