@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Max Verstappen &amp; Red Bull Racing</title>
+  <meta name="description" content="A trajetória de Max Verstappen, tetracampeão mundial de Fórmula 1, e da equipe Red Bull Racing.">
+  <meta name="theme-color" content="#0a1330">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,400;0,600;0,700;0,900;1,700&display=swap" rel="stylesheet">
+
+  <!-- O primeiro frame começa a baixar junto com a página -->
+  <link rel="preload" as="image" href="frames/frame-0001.webp" type="image/webp">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#piloto">Pular a animação</a>
+
+  <header class="site-header">
+    <a class="brand" href="#topo" aria-label="Início">
+      <span class="brand__num">1</span>
+      <span class="brand__name">Verstappen</span>
+    </a>
+    <nav class="site-nav" aria-label="Seções">
+      <a href="#piloto">Piloto</a>
+      <a href="#numeros">Números</a>
+      <a href="#carreira">Carreira</a>
+      <a href="#red-bull">Red Bull</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ===== Animação de scroll (300 frames) ===== -->
+    <section class="sequence" id="topo" aria-label="Animação de abertura">
+      <div class="sequence__sticky">
+        <canvas class="sequence__canvas" id="sequence-canvas" aria-hidden="true"></canvas>
+        <div class="sequence__shade" aria-hidden="true"></div>
+
+        <div class="sequence__captions">
+          <div class="caption is-active" data-from="0" data-to="0.24">
+            <p class="eyebrow">Red Bull Racing · Fórmula 1</p>
+            <h1 class="caption__title">Max<br><span>Verstappen</span></h1>
+          </div>
+          <div class="caption" data-from="0.26" data-to="0.5">
+            <p class="eyebrow">2021 · 2022 · 2023 · 2024</p>
+            <h2 class="caption__title">Tetra<span>campeão</span></h2>
+          </div>
+          <div class="caption" data-from="0.52" data-to="0.76">
+            <p class="eyebrow">Barcelona, 2016</p>
+            <h2 class="caption__title">18 anos.<br><span>Primeira vitória.</span></h2>
+          </div>
+          <div class="caption" data-from="0.78" data-to="1.01">
+            <p class="eyebrow">Milton Keynes · desde 2005</p>
+            <h2 class="caption__title">Feito para<br><span>acelerar</span></h2>
+          </div>
+        </div>
+
+        <div class="sequence__hint" aria-hidden="true">
+          <span>Role para acelerar</span>
+          <i></i>
+        </div>
+
+        <div class="sequence__progress" aria-hidden="true"><i id="sequence-progress"></i></div>
+
+        <div class="loader" id="loader" role="status" aria-live="polite">
+          <div class="loader__ring" aria-hidden="true"></div>
+          <p class="loader__label">Aquecendo os pneus <strong id="loader-percent">0%</strong></p>
+        </div>
+        <p class="loading-chip" id="loading-chip" aria-hidden="true"></p>
+      </div>
+    </section>
+
+    <!-- ===== Piloto ===== -->
+    <section class="section about" id="piloto">
+      <div class="container about__grid">
+        <figure class="about__photo">
+          <img src="assets/IMG_0454.JPG" width="400" height="500" loading="lazy" decoding="async"
+               alt="Max Verstappen com o macacão da Red Bull, sorrindo e mostrando quatro dedos para celebrar o quarto título mundial.">
+          <figcaption>Quatro dedos, quatro títulos. Las Vegas, 2024.</figcaption>
+        </figure>
+        <div class="about__text">
+          <p class="eyebrow">O piloto</p>
+          <h2 class="section__title">Nascido para <span>correr</span></h2>
+          <p class="lead">
+            Max Emilian Verstappen nasceu em 30 de setembro de 1997, em Hasselt, na Bélgica, e corre com
+            a bandeira da Holanda. Filho de Jos Verstappen, ex-piloto de Fórmula 1, e de Sophie Kumpen,
+            campeã de kart, cresceu entre oficinas e pistas.
+          </p>
+          <p>
+            Estreou na F1 pela Toro Rosso em 2015, com apenas 17 anos, o mais jovem da história da categoria.
+            Na quinta corrida de 2016 foi promovido à Red Bull Racing e venceu logo na estreia, no GP da Espanha,
+            com 18 anos e 228 dias. Ninguém tinha vencido uma corrida de F1 tão jovem.
+          </p>
+          <p>
+            O estilo é agressivo, o controle do carro no limite é raro e a consistência virou marca registrada.
+            Entre 2021 e 2024, isso rendeu quatro títulos mundiais seguidos.
+          </p>
+          <ul class="facts">
+            <li><span>Nacionalidade</span><strong>Holandesa</strong></li>
+            <li><span>Número</span><strong>33 (usou o 1 como campeão)</strong></li>
+            <li><span>Equipe</span><strong>Red Bull Racing</strong></li>
+            <li><span>Estreia na F1</span><strong>Austrália, 2015</strong></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Números ===== -->
+    <section class="section stats" id="numeros">
+      <div class="container">
+        <p class="eyebrow">Em números</p>
+        <h2 class="section__title">Uma era <span>dominante</span></h2>
+        <div class="stats__grid">
+          <article class="stat">
+            <strong class="stat__value" data-count="4">4</strong>
+            <p class="stat__label">títulos mundiais seguidos (2021–2024)</p>
+          </article>
+          <article class="stat">
+            <strong class="stat__value" data-count="63">63</strong>
+            <p class="stat__label">vitórias em GPs até o fim de 2024</p>
+          </article>
+          <article class="stat">
+            <strong class="stat__value" data-count="19">19</strong>
+            <p class="stat__label">vitórias em 22 corridas em 2023, recorde de uma temporada</p>
+          </article>
+          <article class="stat">
+            <strong class="stat__value" data-count="10">10</strong>
+            <p class="stat__label">vitórias consecutivas em 2023, outro recorde</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Carreira ===== -->
+    <section class="section timeline" id="carreira">
+      <div class="container">
+        <p class="eyebrow">Carreira</p>
+        <h2 class="section__title">Volta a <span>volta</span></h2>
+        <ol class="timeline__list">
+          <li class="timeline__item">
+            <span class="timeline__year">2015</span>
+            <div>
+              <h3>Estreia aos 17</h3>
+              <p>Larga no GP da Austrália pela Toro Rosso e se torna o piloto mais jovem a disputar uma corrida de F1.</p>
+            </div>
+          </li>
+          <li class="timeline__item">
+            <span class="timeline__year">2016</span>
+            <div>
+              <h3>Vitória na estreia pela Red Bull</h3>
+              <p>Promovido no meio da temporada, vence o GP da Espanha em Barcelona na primeira corrida pela equipe principal.</p>
+            </div>
+          </li>
+          <li class="timeline__item">
+            <span class="timeline__year">2021</span>
+            <div>
+              <h3>O primeiro título</h3>
+              <p>Depois de um duelo histórico contra Lewis Hamilton, o campeonato é decidido na última volta em Abu Dhabi.</p>
+            </div>
+          </li>
+          <li class="timeline__item">
+            <span class="timeline__year">2022</span>
+            <div>
+              <h3>Bicampeão</h3>
+              <p>Com o novo regulamento de efeito solo, vence 15 corridas e leva a Red Bull de volta ao título de construtores.</p>
+            </div>
+          </li>
+          <li class="timeline__item">
+            <span class="timeline__year">2023</span>
+            <div>
+              <h3>A temporada perfeita</h3>
+              <p>19 vitórias em 22 corridas. O RB19 vence 21 das 22 provas do ano, o maior domínio da história da F1.</p>
+            </div>
+          </li>
+          <li class="timeline__item">
+            <span class="timeline__year">2024</span>
+            <div>
+              <h3>Tetra em Las Vegas</h3>
+              <p>Garante o quarto título seguido em Las Vegas, num ano em que o carro deixou de ser o mais rápido do grid.</p>
+            </div>
+          </li>
+          <li class="timeline__item">
+            <span class="timeline__year">2026</span>
+            <div>
+              <h3>Nova era</h3>
+              <p>Com o novo regulamento de motores, a Red Bull passa a usar unidades de potência próprias, desenvolvidas com a Ford.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ===== Red Bull Racing ===== -->
+    <section class="section team" id="red-bull">
+      <div class="container team__grid">
+        <div class="team__text">
+          <p class="eyebrow">A equipe</p>
+          <h2 class="section__title">Red Bull <span>Racing</span></h2>
+          <p class="lead">
+            A Red Bull comprou a Jaguar e estreou como equipe na Fórmula 1 em 2005. Em poucos anos, a fábrica de
+            Milton Keynes, na Inglaterra, virou uma das mais vencedoras do grid.
+          </p>
+          <p>
+            Com Sebastian Vettel, conquistou quatro títulos seguidos de pilotos e de construtores entre 2010 e 2013.
+            Com Verstappen vieram mais quatro títulos de pilotos e os construtores de 2022 e 2023. A equipe ainda
+            mantém um time irmão, a antiga Toro Rosso, que revela pilotos para a escuderia principal.
+          </p>
+          <ul class="team__stats">
+            <li><strong>2005</strong><span>estreia na F1</span></li>
+            <li><strong>8</strong><span>títulos de pilotos</span></li>
+            <li><strong>6</strong><span>títulos de construtores</span></li>
+          </ul>
+        </div>
+        <figure class="team__photo">
+          <img src="assets/IMG_0455.JPG" width="588" height="393" loading="lazy" decoding="async"
+               alt="Max Verstappen e a equipe Red Bull Racing.">
+        </figure>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p><strong>Max Verstappen &amp; Red Bull Racing</strong> · site feito por fã, sem vínculo oficial com o piloto, a equipe ou a Fórmula 1.</p>
+      <p class="site-footer__small">Red Bull, Oracle Red Bull Racing e Fórmula 1 são marcas de seus respectivos donos. Estatísticas até o fim da temporada 2024.</p>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
