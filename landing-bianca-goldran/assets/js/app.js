@@ -12,24 +12,13 @@
   var $ = function (sel, el) { return (el || document).querySelector(sel); };
   var $$ = function (sel, el) { return Array.prototype.slice.call((el || document).querySelectorAll(sel)); };
 
-  var ICON_CHECK = '<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>';
   var ICON_RELOGIO = '<svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>';
 
   /* ---------------- Formatação ---------------- */
-  function reais(v) {
-    return 'R$ ' + Number(v).toLocaleString('pt-BR', { minimumFractionDigits: v % 1 ? 2 : 0 });
-  }
   function duracaoTexto(min) {
     var h = Math.floor(min / 60), m = min % 60;
     if (!h) return m + ' min';
     return h + 'h' + (m ? String(m).padStart(2, '0') : '');
-  }
-  function duracaoExtenso(min) {
-    var h = Math.floor(min / 60), m = min % 60;
-    var partes = [];
-    if (h) partes.push(h + (h > 1 ? ' horas' : ' hora'));
-    if (m) partes.push(m + ' minutos');
-    return partes.join(' e ');
   }
   function parseData(str) {
     var p = str.split('-');
@@ -58,18 +47,6 @@
 
   /* ---------------- Conteúdo vindo do config.js ---------------- */
   function preencherConteudo() {
-    $$('[data-preco]').forEach(function (el) {
-      var s = SERVICOS[el.getAttribute('data-preco')];
-      if (s) el.textContent = reais(s.preco);
-    });
-    $$('[data-duracao]').forEach(function (el) {
-      var s = SERVICOS[el.getAttribute('data-duracao')];
-      if (s) el.textContent = 'duração ~' + duracaoTexto(s.duracaoMin);
-    });
-    $$('[data-duracao-texto]').forEach(function (el) {
-      var s = SERVICOS[el.getAttribute('data-duracao-texto')];
-      if (s) el.textContent = duracaoExtenso(s.duracaoMin);
-    });
     $$('[data-endereco]').forEach(function (el) { el.textContent = CFG.endereco || ''; });
     $$('[data-maps]').forEach(function (el) { el.href = CFG.mapsUrl || '#'; });
     $$('[data-instagram]').forEach(function (el) { el.href = 'https://instagram.com/' + (CFG.instagram || ''); });
@@ -80,26 +57,6 @@
       el.addEventListener('click', function () { rastrear('Contact', { origem: 'whatsapp' }); });
     });
 
-    // Cards de preço
-    var planos = $('#planos');
-    planos.innerHTML = Object.keys(SERVICOS).map(function (id, i) {
-      var s = SERVICOS[id];
-      return (
-        '<article class="plano' + (i === 0 ? ' plano--destaque' : '') + '">' +
-          (i === 0 ? '<span class="plano__tag">Primeira vez? Comece aqui</span>' : '') +
-          '<p class="plano__sub">' + escapar(s.subtitulo || '') + '</p>' +
-          '<h3>' + escapar(s.nome) + '</h3>' +
-          '<div class="plano__preco"><small>R$</small><strong>' +
-            Number(s.preco).toLocaleString('pt-BR', { minimumFractionDigits: s.preco % 1 ? 2 : 0 }) +
-          '</strong></div>' +
-          '<p class="plano__dur">' + ICON_RELOGIO + 'Duração média de ' + duracaoTexto(s.duracaoMin) + '</p>' +
-          '<ul>' + (s.itens || []).map(function (it) { return '<li>' + ICON_CHECK + '<span>' + escapar(it) + '</span></li>'; }).join('') + '</ul>' +
-          '<a href="#agenda" class="btn ' + (i === 0 ? 'btn--primario' : 'btn--fantasma') + ' btn--bloco" data-servico="' + id + '">' +
-            'Agendar ' + escapar(s.nome.split(' ')[0].toLowerCase()) +
-          '</a>' +
-        '</article>'
-      );
-    }).join('');
   }
 
   /* ---------------- Rastreamento (opcional) ---------------- */
@@ -301,8 +258,8 @@
       var s = SERVICOS[id];
       var ativo = id === estado.servico;
       return '<button type="button" class="servico" role="radio" data-id="' + id + '" aria-checked="' + ativo + '" tabindex="' + (ativo ? 0 : -1) + '">' +
-        '<span><span class="servico__nome">' + escapar(s.nome) + '</span><span class="servico__dur">~' + duracaoTexto(s.duracaoMin) + '</span></span>' +
-        '<span class="servico__preco">' + reais(s.preco) + '</span></button>';
+        '<span class="servico__nome">' + escapar(s.nome) + '</span>' +
+        '<span class="servico__dur">' + ICON_RELOGIO + '~' + duracaoTexto(s.duracaoMin) + '</span></button>';
     }).join('');
   }
 
@@ -419,9 +376,7 @@
   function atualizarForm() {
     if (!estado.dia || !estado.hora) { esconderForm(); return; }
     var s = SERVICOS[estado.servico];
-    el.resumo.innerHTML =
-      '<div><strong>' + escapar(s.nome) + '</strong><br>' + dataLonga(estado.dia) + ' às ' + estado.hora + '</div>' +
-      '<span class="resumo__preco">' + reais(s.preco) + '</span>';
+    el.resumo.innerHTML = '<strong>' + escapar(s.nome) + '</strong><br>' + dataLonga(estado.dia) + ' às ' + estado.hora;
     el.erro.hidden = true;
     el.form.hidden = false;
   }
@@ -457,7 +412,7 @@
     el.erro.hidden = true;
 
     api.agendar(dados).then(function (r) {
-      rastrear('Schedule', { servico: dados.servico, value: SERVICOS[dados.servico].preco, currency: 'BRL' });
+      rastrear('Schedule', { servico: dados.servico });
       mostrarSucesso(r.agendamento, dados);
       delete estado.cache[dados.servico];
     }).catch(function (err) {
@@ -505,22 +460,42 @@
   /* ---------------- Interface geral ---------------- */
   function iniciarInterface() {
     var topo = $('#topo');
-    var barra = $('#barra-mobile');
-    var hero = $('.hero');
-    var agenda = $('#agenda');
-    var heroVisivel = true, agendaVisivel = false;
-    function atualizarBarra() { barra.classList.toggle('visivel', !heroVisivel && !agendaVisivel); }
-
     window.addEventListener('scroll', function () { topo.classList.toggle('rolou', window.scrollY > 8); }, { passive: true });
+  }
 
-    if ('IntersectionObserver' in window) {
-      new IntersectionObserver(function (es) { heroVisivel = es[0].isIntersecting; atualizarBarra(); }, { threshold: 0.15 }).observe(hero);
-      new IntersectionObserver(function (es) { agendaVisivel = es[0].isIntersecting; atualizarBarra(); }, { threshold: 0.05 }).observe(agenda);
-    }
+  /* ---------------- Galeria ---------------- */
+  function iniciarGaleria() {
+    var trilho = $('#galeria');
+    var dialogo = $('#foto-ampliada');
+    var foto = $('img', dialogo);
+
+    $$('[data-galeria]').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var item = trilho.querySelector('li');
+        var passo = item ? item.getBoundingClientRect().width + 14 : trilho.clientWidth / 2;
+        var dir = Number(b.getAttribute('data-galeria'));
+        var fim = trilho.scrollLeft + trilho.clientWidth >= trilho.scrollWidth - 4;
+        if (dir > 0 && fim) trilho.scrollTo({ left: 0, behavior: 'smooth' });
+        else trilho.scrollBy({ left: dir * passo, behavior: 'smooth' });
+      });
+    });
+
+    if (!dialogo.showModal) return; // navegador antigo: fotos continuam visíveis no carrossel
+    trilho.addEventListener('click', function (e) {
+      var img = e.target.closest('.galeria__item') && e.target.closest('.galeria__item').querySelector('img');
+      if (!img) return;
+      foto.src = img.currentSrc || img.src;
+      foto.alt = img.alt;
+      dialogo.showModal();
+    });
+    dialogo.addEventListener('click', function (e) {
+      if (e.target === dialogo || e.target.closest('.foto-ampliada__fechar')) dialogo.close();
+    });
   }
 
   preencherConteudo();
   carregarRastreamento();
   iniciarInterface();
+  iniciarGaleria();
   iniciarAgenda();
 })();

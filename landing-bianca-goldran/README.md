@@ -1,6 +1,6 @@
 # Landing Page – Alongamento Molde F1 | Bianca Goldran • Glow Studio
 
-Página de alta conversão com **preços de aplicação e manutenção** logo na primeira tela e **agenda online ligada ao Google Agenda da Bianca**:
+Página curta (cerca de 2 telas) com **galeria de trabalhos** e **agenda online ligada ao Google Agenda da Bianca**. Os preços **não** aparecem na página.
 
 - Horário com evento na agenda → aparece **Ocupado** (riscado, não clica).
 - Horário livre → aparece **Vago** e a cliente agenda na hora.
@@ -11,9 +11,9 @@ Página de alta conversão com **preços de aplicação e manutenção** logo na
 landing-bianca-goldran/
 ├── index.html                  ← a página
 ├── assets/css/style.css
-├── assets/js/config.js         ← PREÇOS, WhatsApp, Instagram, endereço, URL da agenda
+├── assets/js/config.js         ← WhatsApp, Instagram, endereço, serviços, URL da agenda
 ├── assets/js/app.js            ← lógica da agenda
-├── assets/img/                 ← fotos (tiradas do Reels do molde F1)
+├── assets/img/                 ← fotos da galeria (galeria-*.webp)
 └── google-apps-script/
     ├── Codigo.gs               ← backend da agenda (roda na conta Google da Bianca)
     ├── appsscript.json
@@ -24,19 +24,18 @@ Sem a URL da agenda configurada, a página funciona em **modo demonstração** (
 
 ---
 
-## 1. Ajustar preços e contatos (2 min)
+## 1. Ajustar contatos (2 min)
 
 Abra `assets/js/config.js` e preencha:
 
 | Campo | O que é |
 |---|---|
-| `servicos.aplicacao.preco` / `servicos.manutencao.preco` | Valores em reais (hoje estão **160** e **110** só como exemplo) |
 | `duracaoMin` | Duração de cada serviço em minutos |
 | `whatsapp` | Número com 55 + DDD, só dígitos. Ex.: `5511987654321` |
 | `instagram` | @ sem o arroba |
 | `endereco` / `mapsUrl` | Endereço do studio e link do Google Maps |
 
-Revise também as respostas da seção **Dúvidas** no `index.html` (formas de pagamento, política de remarcação).
+**Trocar ou adicionar fotos da galeria:** salve a foto em `assets/img/` (de preferência `.webp`, em pé, 720×960) e copie uma das linhas `<li>…galeria__item…</li>` do `index.html`, trocando o nome do arquivo e o texto do `alt`. A primeira foto é a que aparece em destaque (com o topo em arco).
 
 ## 2. Ligar a agenda ao Google Agenda da Bianca (10 min, uma vez só)
 
@@ -81,7 +80,7 @@ Coloque o link na **bio do Instagram**, no **WhatsApp Business** (mensagem de sa
 ## 5. Medir conversão (opcional)
 
 Em `config.js`, preencha `metaPixelId` (anúncios no Instagram/Facebook) e/ou `googleAnalyticsId`. A página envia os eventos:
-`ViewContent` (clicou em agendar) → `InitiateCheckout` (escolheu horário) → `Schedule` (agendamento confirmado, com o valor) e `Contact` (clicou no WhatsApp).
+`ViewContent` (clicou em agendar) → `InitiateCheckout` (escolheu horário) → `Schedule` (agendamento confirmado) e `Contact` (clicou no WhatsApp).
 
 ## Testes
 
