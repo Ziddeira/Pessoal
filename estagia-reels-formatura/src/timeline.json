@@ -1,0 +1,16 @@
+{
+  "fps": 30,
+  "width": 1080,
+  "height": 1920,
+  "cenas": [
+    { "id": "Gancho", "frames": 90 },
+    { "id": "Formatura", "frames": 90 },
+    { "id": "Aluna", "frames": 240 },
+    { "id": "Consequencias", "frames": 180 },
+    { "id": "Semestres", "frames": 150 },
+    { "id": "Produto", "frames": 300 },
+    { "id": "Recursos", "frames": 150 },
+    { "id": "Virada", "frames": 120 },
+    { "id": "Chamada", "frames": 150 }
+  ]
+}
